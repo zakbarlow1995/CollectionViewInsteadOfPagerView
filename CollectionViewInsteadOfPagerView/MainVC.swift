@@ -45,8 +45,10 @@ class MainVC: UIViewController, UICollectionViewDelegateFlowLayout {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        view.backgroundColor = .white
         
-        //Setup constraints (placing the menuView above the collectionView
+        menuView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: self.topBarTotalHeight, left: 0, bottom: 0, right: 0) , size: .init(width: view.bounds.width, height: 30))
+        collectionView.anchor(top: menuView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -57,6 +59,15 @@ class MainVC: UIViewController, UICollectionViewDelegateFlowLayout {
         
         menuController.collectionView.selectItem(at: [0, 0], animated: true, scrollPosition: .centeredHorizontally)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        setupTransparentNavigationBarWithBlackText()
     }
     
 }
@@ -161,7 +172,12 @@ class MenuVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             layout.minimumInteritemSpacing = 0
         }
         
-        //Add views and setup constraints for collection view, separator view and "selection indicator" view - the menuBar
+        view.addSubview(menuSeparator)
+        menuSeparator.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, size: .init(width: 0, height: 1))
+        
+        view.addSubview(menuBar)
+        menuBar.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: nil, size: .init(width: 0, height: 2))
+        menuBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/(CGFloat(menuItems.count))).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -204,7 +220,8 @@ class MenuCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //Add label to view and setup constraints to fill Cell
+        addSubview(label)
+        label.fillSuperview()
     }
     
     required init?(coder aDecoder: NSCoder) {
