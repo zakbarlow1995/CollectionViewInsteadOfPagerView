@@ -14,7 +14,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     fileprivate let menuController = MenuVC(collectionViewLayout: UICollectionViewFlowLayout())
     fileprivate let cellId = "cellId"
     
-    fileprivate let pages = ["aVC", "bVC", "cVC"]
+    fileprivate let pages = ["Page A", "Page B", "Page C"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +87,10 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainCell
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? MainCell else { return UICollectionViewCell() }
+        if indexPath.row < pages.count {
+            cell.configureTitle(pages[indexPath.row])
+        }
         return cell
     }
     

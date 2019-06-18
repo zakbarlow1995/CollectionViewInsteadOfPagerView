@@ -11,15 +11,29 @@ import UIKit
 
 class MainCell: UICollectionViewCell {
     
+    let label: UILabel = {
+        let l = UILabel()
+        l.text = ""
+        l.textAlignment = .center
+        l.textColor = .white
+        l.numberOfLines = 1
+        l.adjustsFontSizeToFitWidth = true
+        l.font = UIFont.systemFont(ofSize: 100, weight: .bold )
+        return l
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // Custom UIColor extension to return a random colour (to check that everything is working)
         backgroundColor = UIColor().random()
-        
+        addSubview(label)
+        label.fillSuperview()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    func configureTitle(_ title: String) {
+        label.text = title
     }
 }
