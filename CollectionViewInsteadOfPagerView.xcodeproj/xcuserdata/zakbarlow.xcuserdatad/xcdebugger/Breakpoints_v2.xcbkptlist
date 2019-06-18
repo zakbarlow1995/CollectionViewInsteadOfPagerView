@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CollectionViewInsteadOfPagerView/MainVC.swift"
-            timestampString = "572437775.312167"
+            timestampString = "582559371.689424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -26,13 +26,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CollectionViewInsteadOfPagerView/MainVC.swift"
-            timestampString = "572437775.312529"
+            timestampString = "582559371.689742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "isSelected"
-            landmarkType = "24">
+            endingLineNumber = "215">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionViewInsteadOfPagerView/MainVC.swift"
+            timestampString = "582559371.689973"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
